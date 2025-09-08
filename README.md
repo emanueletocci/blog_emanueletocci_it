@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📚 Emanuele Tocci – BLOG
 
-## Getting Started
+[![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178c6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![shadcn/ui](https://img.shields.io/badge/shadcn-ui-ffffff?style=for-the-badge&logo=vercel&logoColor=black)](https://ui.shadcn.com/)
+[![gray-matter](https://img.shields.io/badge/gray--matter-181717?style=for-the-badge&logo=markdown&logoColor=white)](https://github.com/jonschlinkert/gray-matter)
+[![Markdown](https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white)](https://daringfireball.net/projects/markdown/)
+[![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white)](https://cloudinary.com/)
+[![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Descrizione
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Blog personale sviluppato con **Next.js** + **TypeScript**.  
+Gli articoli sono scritti in **Markdown** e memorizzati come file `.md` nella repo.  
+La gestione del frontmatter è affidata a **gray-matter**.  
+La UI è creata con **Tailwind CSS** e i componenti preconfigurati di **shadcn/ui**.  
+Le immagini sono ottimizzate e servite tramite **Next.js Image component** e anche da **Cloudinary**.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tecnologie principali
 
-## Learn More
+- **[Next.js](https://nextjs.org/):** framework React fullstack per SSG/SSR/app routing.
+- **[TypeScript](https://www.typescriptlang.org/):** tipizzazione statica avanzata.
+- **[Tailwind CSS](https://tailwindcss.com/):** utility-first CSS framework per styling efficiente.
+- **[shadcn/ui](https://ui.shadcn.com/):** componenti React modulari pronti e accessibili.
+- **[gray-matter](https://github.com/jonschlinkert/gray-matter):** parsing del frontmatter YAML nei markdown.
+- **[Markdown](https://daringfireball.net/projects/markdown/):** formato di scrittura per articoli.
+- **[Cloudinary](https://cloudinary.com/):** CDN e ottimizzazione immagini remote.
+- **[Next.js Image component](https://nextjs.org/docs/pages/api-reference/components/image):** immagini ottimizzate con lazy-loading.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
