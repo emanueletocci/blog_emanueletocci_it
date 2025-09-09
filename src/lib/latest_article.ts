@@ -1,5 +1,5 @@
 import type { Article } from '@/types/article'; // o '@/types'
-import { getAllArticles } from './article_parser'; 
+import { getAllArticles } from './markdown/article_parser'; 
 
 export function getLatestArticle(): Article {
   const articles = getAllArticles();

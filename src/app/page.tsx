@@ -1,5 +1,5 @@
 import { ArticleCard } from "@/components/ArticleCard";
-import { getAllArticles } from "@/lib/article_parser";
+import { getAllArticles } from "@/lib/markdown/article_parser";
 import { getLatestArticle } from "@/lib/latest_article";
 
 export default function HomePage() {
@@ -19,7 +19,7 @@ export default function HomePage() {
 							<ArticleCard
 								key={latest_article?.slug}
 								article={latest_article}
-								imageHeight="h-30"
+								imageHeight="h-90"
 								className="w-full"
 							/>
 						</div>
