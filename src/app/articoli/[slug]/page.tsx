@@ -39,9 +39,11 @@ export default async function ArticlePage({
 				{article.title}{" "}
 			</h1>
 
-			<ReactMarkdown components={markdownComponents}>
-				{article.content}
-			</ReactMarkdown>
+			<div className="markdown-container">
+				<ReactMarkdown components={markdownComponents}>
+					{article.content}
+				</ReactMarkdown>
+			</div>
 		</main>
 	);
 }

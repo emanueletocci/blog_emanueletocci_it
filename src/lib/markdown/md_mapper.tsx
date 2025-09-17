@@ -64,7 +64,7 @@ export const markdownComponents = {
 					src={src}
 					alt={props.alt ?? ""}
 					width={1200}
-					height={700}
+					height={400}
 					className="w-full h-auto border rounded-lg 0"
 				/>
 			</div>
