@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 // Mapping custom per Markdown headers -> HTML headers
 // Personalizzo il rendering degli header markdown
@@ -47,5 +48,34 @@ export const markdownComponents = {
 				className="text-4xl font-semibold text-cyan-600 py-1 self-stretch"
 			/>
 		</div>
+	),
+
+	img: (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
+		let src = "";
+		if (typeof props.src === "string") {
+			src = props.src;
+		} else if (props.src instanceof Blob) {
+			src = URL.createObjectURL(props.src);
+		}
+
+		return (
+			<div className="w-full my-6 flex justify-center items-center overflow-x-scroll">
+				<Image
+					src={src}
+					alt={props.alt ?? ""}
+					width={1200}
+					height={700}
+					className="w-full h-auto border rounded-lg 0"
+				/>
+			</div>
+		);
+	},
+
+	strong: (props: React.HTMLAttributes<HTMLSpanElement>) => (
+		<strong {...props} className="font-extrabold text-cyan-500 antialiased" />
+	),
+
+	em: (props: React.HTMLAttributes<HTMLElement>) => (
+		<em {...props} className="italic text-cyan-500 antialiased" />
 	),
 };
