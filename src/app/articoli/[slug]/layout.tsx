@@ -18,16 +18,19 @@ export default function ArticleLayout({
 	const tocTree = buildTocTree(headings); // struttura ad albero
 
 	return (
-		<div className="flex flex-row w-full">
+		<div className="flex flex-row w-full gap-5">
 			<main className="flex-[3] p-5 border rounded border-cyan-400">
 				{children}
 			</main>
-			<aside className="flex-[1] p-5">
+			<aside className="flex-[1] ">
 				{/* Indice - TOC */}
-				<pre className="text-4xl antialiased">#</pre>
-				<p className="uppercase font-bold">Indice</p>
-				<div className="bg-cyan-950 border rounded border-cyan-400 text-cyan-400 p-5">
-					<TocList items={tocTree} />
+				<div className="border rounded border-cyan-400 p-5 ">
+					<div className="flex flex-row items-center mb-5 bg-cyan-950 border rounded border-cyan-400 text-cyan-400 p-5">
+						<code>~$ tree &quot;indice&quot; </code>
+					</div>
+					<div className="">
+						<TocList items={tocTree} />
+					</div>
 				</div>
 			</aside>
 		</div>
