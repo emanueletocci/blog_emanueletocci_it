@@ -24,9 +24,9 @@ export default function ArticleLayout({
 			</main>
 			<aside className="flex-[1] ">
 				{/* Indice - TOC */}
-				<div className="border rounded border-cyan-400 p-5 ">
+				<div className="border rounded border-cyan-400 p-5 sticky top-5 self-start">
 					<div className="flex flex-row items-center mb-5 bg-cyan-950 border rounded border-cyan-400 text-cyan-400 p-5">
-						<code>~$ tree &quot;indice&quot; </code>
+						<code className="before:animate-typewriter after:animate-caret">~$ tree &quot;indice&quot; </code>
 					</div>
 					<div className="">
 						<TocList items={tocTree} />

@@ -9,7 +9,7 @@ export default async function ArticlePage({
 }: {
 	params: { slug: string };
 }) {
-	const { slug } = params;
+	const { slug } = await params;
 	const article = getArticleBySlug(slug);
 
 	return (
