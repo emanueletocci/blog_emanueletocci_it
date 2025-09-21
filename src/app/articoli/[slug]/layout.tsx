@@ -18,14 +18,15 @@ export default function ArticleLayout({
 	const tocTree = buildTocTree(headings); // struttura ad albero
 
 	return (
-		<div className="flex flex-row w-full gap-8">
-			<main className="flex-1 p-5 border rounded border-cyan-400">
+		<div className="flex flex-row w-full">
+			<main className="flex-[3] p-5 border rounded border-cyan-400">
 				{children}
 			</main>
-			<aside className="p-5">
+			<aside className="flex-[1] p-5">
+				{/* Indice - TOC */}
 				<pre className="text-4xl antialiased">#</pre>
 				<p className="uppercase font-bold">Indice</p>
-				<div className="bg-cyan-950 border rounded border-cyan-400 text-cyan-400 p-5 w-xl">
+				<div className="bg-cyan-950 border rounded border-cyan-400 text-cyan-400 p-5">
 					<TocList items={tocTree} />
 				</div>
 			</aside>
@@ -33,6 +34,7 @@ export default function ArticleLayout({
 	);
 }
 
+// funzione ricorsiva per rendererizzare la
 function TocList({
 	items,
 	prefix = [],
@@ -42,12 +44,10 @@ function TocList({
 }) {
 	return (
 		<ol className="ml-4">
-
 			{items.map((item, idx) => {
-
-        // Calcolo del numero della voce (es. 1.2.3)
-        // - prefix: numerazione elemento padre
-        // - idx posizione corrente nell'array (0-based)
+				// Calcolo del numero della voce (es. 1.2.3)
+				// - prefix: numerazione elemento padre
+				// - idx posizione corrente nell'array (0-based)
 				const number = [...prefix, idx + 1].join(".");
 				return (
 					<li key={item.id}>

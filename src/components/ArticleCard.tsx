@@ -1,6 +1,7 @@
 import Image from "next/image";
-import Link from "next/link"; 
+import Link from "next/link";
 import type { Article } from "@/types/article";
+import TagList from "@/components/TagList";
 
 type ArticleCardProps = {
 	article: Article;
@@ -35,13 +36,9 @@ export function ArticleCard({
 				<h3 className="articleTitle text-cyan-100 text-lg mb-2">
 					{article.title}
 				</h3>
-				<div className="tagBox flex gap-2">
-					{article.tags.map((tag) => (
-						<button key={tag} className="border rounded border-white p-1">
-							{tag}
-						</button>
-					))}
-				</div>
+				
+				{/* Tags */}
+				<TagList tags={article.tags} />{" "}
 			</div>
 		</Link>
 	);
