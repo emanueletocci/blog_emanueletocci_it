@@ -1,4 +1,5 @@
 import { getArticleBySlug } from "@/lib/markdown/article_parser";
+import { getHeadings } from "@/lib/markdown/article_parser";
 import ReactMarkdown from "react-markdown";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
@@ -9,8 +10,10 @@ export default async function ArticlePage({
 }: {
 	params: { slug: string };
 }) {
-	const { slug } = await params;
+	const { slug } = params;
 	const article = getArticleBySlug(slug);
+	const content = article.content ?? "";
+	const headings = getHeadings(content);
 
 	return (
 		<main>
