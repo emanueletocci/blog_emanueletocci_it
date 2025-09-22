@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 						<Link href={"/"} className="hover:text-cyan-400 active:text-cyan-400 inline-block" >
 							home/
 						</Link> 	
-						<Link href={"articles"} className="hover:text-cyan-400 active:text-cyan-400 inline-block" >
+						<Link href={"articoli"} className="hover:text-cyan-400 active:text-cyan-400 inline-block" >
 							articoli/
 						</Link> 
 						<Link href={"gallery"} className="hover:text-cyan-400 active:text-cyan-400 inline-block" >

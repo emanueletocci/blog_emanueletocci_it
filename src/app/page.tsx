@@ -13,7 +13,7 @@ export default function HomePage() {
 				<div className="row1 flex flex-row gap-5">
 					<div className="flex-1">
 						<div className="bg-cyan-700 text-cyan-100 p-2 font-mono text-base rounded-t border border-cyan-400 border-b-0">
-							<code>ls articoli/ | grep &quot;latest&quot;</code>
+							<code>~$ ls articoli/ | grep &quot;latest&quot;</code>
 						</div>
 						<div className="border border-cyan-400 rounded-b p-6 ">
 							<ArticleCard
@@ -32,7 +32,7 @@ export default function HomePage() {
 			{/* SECONDA SEZIONE */}
 			<section>
 				<div className="bg-cyan-700 text-cyan-100 p-2 font-mono text-base rounded-t border border-cyan-400 border-b-0">
-					<code>ls articoli/ | head -n 6</code>
+					<code>~$ ls articoli/ | head -n 6</code>
 				</div>
 				<div className="grid grid-cols-3 gap-5 border border-cyan-400 rounded-b bg-gray-900 p-6">
 					{articles.map((article) => (

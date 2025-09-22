@@ -5,7 +5,7 @@ import { getArticleBySlug, getHeadings } from "@/lib/markdown/article_parser";
 import { buildTocTree } from "@/lib/buildTocTree";
 import { HeadingNode } from "@/types/headingNode";
 
-export default function ArticleLayout({
+export default function SingleArticle({
 	children,
 	params,
 }: {
