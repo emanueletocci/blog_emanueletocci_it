@@ -6,36 +6,42 @@ import { buildTocTree } from "@/lib/buildTocTree";
 import { HeadingNode } from "@/types/headingNode";
 
 export default function SingleArticle({
-	children,
-	params,
+  children,
+  params,
 }: {
-	children: React.ReactNode;
-	params: { slug: string };
+  children: React.ReactNode;
+  params: { slug: string };
 }) {
-	const article = getArticleBySlug(params.slug);
-	const content = article.content ?? "";
-	const headings = getHeadings(content); // array piatto
-	const tocTree = buildTocTree(headings); // struttura ad albero
+  const article = getArticleBySlug(params.slug);
+  const content = article.content ?? "";
+  const headings = getHeadings(content); // array piatto
+  const tocTree = buildTocTree(headings); // struttura ad albero
 
-	return (
-		<div className="flex flex-row w-full gap-5">
-			<main className="flex-[3] p-5 border rounded border-cyan-400">
-				{children}
-			</main>
-			<aside className="flex-[1] ">
-				{/* Indice - TOC */}
-				<div className="border rounded border-cyan-400 p-5 sticky top-5 self-start">
-					<div className="flex flex-row items-center mb-5 bg-cyan-950 border rounded border-cyan-400 text-cyan-400 p-5">
-						<code className="before:animate-typewriter after:animate-caret">~$ tree &quot;indice&quot; </code>
-					</div>
-					<div className="">
-						<TocList items={tocTree} />
-					</div>
-				</div>
-			</aside>
-		</div>
-	);
+  return (
+    <div className="flex flex-row w-full gap-5">
+      <main className="flex-[3] p-5 border rounded border-cyan-400">
+        {children}
+      </main>
+
+      {headings.length > 0 && (
+        <aside className="flex-[1]">
+          {/* Indice - TOC */}
+          <div className="border rounded border-cyan-400 p-5 sticky top-5 self-start">
+            <div className="flex flex-row items-center mb-5 bg-cyan-950 border rounded border-cyan-400 text-cyan-400 p-5">
+              <code className="before:animate-typewriter after:animate-caret">
+                ~$ tree &quot;indice&quot;{" "}
+              </code>
+            </div>
+            <div>
+              <TocList items={tocTree} />
+            </div>
+          </div>
+        </aside>
+      )}
+    </div>
+  );
 }
+
 
 // funzione ricorsiva per rendererizzare la
 function TocList({
