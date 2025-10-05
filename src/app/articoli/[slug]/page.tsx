@@ -23,7 +23,7 @@ export default async function ArticlePage({
 					fill
 				/>
 			</div>
-			
+
 			{/* Tags */}
 			<TagList tags={article.tags} />
 
@@ -35,7 +35,9 @@ export default async function ArticlePage({
 
 			{/* Contenuto */}
 			<div className="markdown-container">
-				<ReactMarkdown components={markdownComponents}>
+				<ReactMarkdown
+					components={markdownComponents}
+				>
 					{article.content}
 				</ReactMarkdown>
 			</div>
