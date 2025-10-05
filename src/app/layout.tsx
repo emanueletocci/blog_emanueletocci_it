@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import "./globals.css";
 import { JetBrains_Mono } from "next/font/google";
 import Link from "next/link";
+import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const jetBrainsMono = JetBrains_Mono({
 	subsets: ["latin"],
@@ -58,6 +59,29 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 					<footer className="border-t mt-10 pt-5 text-center text-sm text-gray-500">
 						&copy; {new Date().getFullYear()} Emanuele Tocci. All rights
 						reserved.
+						<div className="flex justify-center gap-4 mt-4">
+							<a
+								href="https://github.com/emanueletocci/emanueletocci"
+								target="_blank"
+								rel="noopener"
+							>
+								<FaGithub className="w-6 h-6 hover:text-cyan-400 transition" />
+							</a>
+							<a
+								href="https://www.instagram.com/emanuele.tocci.ph/"
+								target="_blank"
+								rel="noopener"
+							>
+								<FaInstagram className="w-6 h-6 hover:text-cyan-400 transition" />
+							</a>
+							<a
+								href="https://www.linkedin.com/in/emanuele-tocci-08093b165/"
+								target="_blank"
+								rel="noopener"
+							>
+								<FaLinkedin className="w-6 h-6 hover:text-cyan-400 transition" />
+							</a>
+						</div>
 					</footer>
 				</div>
 			</body>
