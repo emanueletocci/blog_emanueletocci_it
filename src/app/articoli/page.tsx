@@ -27,12 +27,6 @@ export default function ArticlesPage() {
 					))}
 				</div>
 			</main>
-			{/* Sidebar - Ricerca */}
-			<aside className="flex-[1]">
-				<div className="border rounded border-cyan-400 p-5 sticky top-5 self-start">
-					<p>Aside</p>
-				</div>
-			</aside>
 		</div>
 	);
 }

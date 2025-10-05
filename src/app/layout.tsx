@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import "./globals.css";
 import { JetBrains_Mono } from "next/font/google";
 import Link from "next/link";
-import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const jetBrainsMono = JetBrains_Mono({
 	subsets: ["latin"],
@@ -19,9 +19,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 				<link rel="icon" href="/favicon.ico" />
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 			</head>
-			{/* CONTENITORE CONDIVISO */}
-			<body className="font-mono bg-gray-900 text-gray-100 transition-colors duration-500 min-h-screen py-5 px-2">
-				<div className="w-full max-w-9/10 mx-auto">
+			<body className="font-mono bg-gray-900 text-gray-100 transition-colors duration-500 min-h-screen">
+				<div className="md:max-w-9/10 mx-auto">
 					<header className="border rounded border-cyan-400 flex items-center p-3">
 						<nav className="flex items-center space-x-15">
 							<section className="bg-cyan-950 border rounded border-cyan-400 text-cyan-400 p-5 2xl:w-xl">
@@ -54,7 +53,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 						</nav>
 					</header>
 
-					<main className="flex-grow px-4 py-8 flex flex-col">{children}</main>
+					<main className="flex-grow py-8 flex flex-col">{children}</main>
 
 					<footer className="border-t mt-10 pt-5 text-center text-sm text-gray-500">
 						&copy; {new Date().getFullYear()} Emanuele Tocci. All rights

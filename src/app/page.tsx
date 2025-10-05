@@ -11,7 +11,7 @@ export default function HomePage() {
 			{/* PRIMA SEZIONE */}
 			<section>
 				<div className="row1 flex flex-row gap-5">
-					<div className="flex-1">
+					<div className="flex-1 w-auto">
 						<div className="bg-cyan-700 text-cyan-100 p-2 font-mono text-base rounded-t border border-cyan-400 border-b-0">
 							<code>~$ ls articoli/ | grep &quot;latest&quot;</code>
 						</div>
@@ -24,7 +24,7 @@ export default function HomePage() {
 							/>
 						</div>
 					</div>
-					<pre className="w-72 flex justify-center items-center bg-gray-800 border border-gray-700 rounded text-cyan-400 font-mono text-xs p-4">
+					<pre className="hidden md:flex md:w-72 justify-center items-center bg-gray-800 border border-gray-700 rounded text-cyan-400 font-mono text-xs p-4">
 						{`FSOCIETY ASCII ART`}
 					</pre>
 				</div>
