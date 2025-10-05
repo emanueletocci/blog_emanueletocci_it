@@ -34,19 +34,19 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 								home/
 							</Link>
 							<Link
-								href={"articoli"}
+								href={"/articoli"}
 								className="hover:text-cyan-400 active:text-cyan-400 inline-block"
 							>
 								articoli/
 							</Link>
 							<Link
-								href={"gallery"}
+								href={"/gallery"}
 								className="hover:text-cyan-400 active:text-cyan-400 inline-block"
 							>
 								gallery.
 							</Link>
 							<Link
-								href={"about."}
+								href={"/about"}
 								className="hover:text-cyan-400 active:text-cyan-400 inline-block"
 							>
 								about.
