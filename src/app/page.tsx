@@ -1,5 +1,5 @@
 import { ArticleCard } from "@/components/ArticleCard";
-import { getAllArticles } from "@/lib/markdown/article_parser";
+import { getAllArticles } from "@/lib/markdown/article_utility";
 import { getLatestArticle } from "@/lib/latest_article";
 
 export default function HomePage() {

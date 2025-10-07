@@ -1,7 +1,7 @@
 // articoli/[slug]/layout.tsx
 
 import React from "react";
-import { getArticleBySlug, getHeadings } from "@/lib/markdown/article_parser";
+import { getArticleBySlug, getHeadings } from "@/lib/markdown/article_utility";
 import { buildTocTree } from "@/lib/buildTocTree";
 import { HeadingNode } from "@/types/headingNode";
 

@@ -1,4 +1,4 @@
-import { getArticleBySlug } from "@/lib/markdown/article_parser";
+import { getArticleBySlug } from "@/lib/markdown/article_utility";
 import ReactMarkdown from "react-markdown";
 import Image from "next/image";
 import { markdownComponents } from "@/lib/markdown/md_mapper";

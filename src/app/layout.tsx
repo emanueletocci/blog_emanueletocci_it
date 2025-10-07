@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 			</head>
 			<body className="font-mono bg-gray-900 text-gray-100 transition-colors duration-500 min-h-screen">
 				<div className="md:max-w-9/10 mx-auto">
-					<header className="border rounded border-cyan-400 flex items-center p-3">
+					<header className="border rounded border-cyan-400 flex items-center p-3 mt-5">
 						<nav className="flex items-center space-x-15">
 							<section className="bg-cyan-950 border rounded border-cyan-400 text-cyan-400 p-5 2xl:w-xl">
 								<code>blog@emanueletocci.it:~$</code>
@@ -55,10 +55,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
 					<main className="flex-grow py-8 flex flex-col">{children}</main>
 
-					<footer className="border-t mt-10 pt-5 text-center text-sm text-gray-500">
+					<footer className="border-t my-10 pt-5 text-center text-sm text-gray-500">
 						&copy; {new Date().getFullYear()} Emanuele Tocci. All rights
 						reserved.
-						<div className="flex justify-center gap-4 mt-4">
+						<div className="flex justify-center gap-4 my-3">
 							<a
 								href="https://github.com/emanueletocci/emanueletocci"
 								target="_blank"

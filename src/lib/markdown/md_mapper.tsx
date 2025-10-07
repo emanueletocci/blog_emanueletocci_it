@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import YouTubeEmbed from "@/components/YTEmbed";
 
 // Funzione helper per generare slug/id dagli header text
 function generateId(text: string): string {
@@ -139,13 +140,42 @@ export const markdownComponents = {
 	img: (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
 		const src = typeof props.src === "string" ? props.src : "";
 		return (
-				<Image
-					src={src}
-					alt={props.alt ?? ""}
-					width={1200}
-					height={400}
-					className="w-full h-auto border rounded-lg my-5"
-				/>
+			<Image
+				src={src}
+				alt={props.alt ?? ""}
+				width={1200}
+				height={400}
+				className="w-full h-auto border rounded-lg my-5"
+			/>
 		);
 	},
+
+	p: (props: React.HTMLAttributes<HTMLParagraphElement>) => {
+		const testo =
+			typeof props.children === "string"
+				? props.children
+				: Array.isArray(props.children)
+				? props.children.join("")
+				: "";
+
+		const matchYouTube = testo.match(
+			/\{(https?:\/\/(www\.)?youtube\.com\/watch\?v=[\w-]{11})\}/
+		);
+
+		if (matchYouTube) {
+			const videoId = estraiIdYouTube(matchYouTube[1]);
+			if (videoId) {
+				return <YouTubeEmbed videoId={videoId} />;
+			}
+		}
+
+		return <p {...props}>{props.children}</p>;
+	},
 };
+
+// Funzione per estrarre l'ID del video da un URL YouTube
+function estraiIdYouTube(url: string): string | null {
+  const regExp = /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=)([^#\&\?]*).*/;
+  const match = url.match(regExp);
+  return match && match[1].length === 11 ? match[1] : null;
+}

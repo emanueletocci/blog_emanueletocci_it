@@ -1,7 +1,7 @@
 // src/app/articoli/page.tsx
 import React from "react";
 import { ArticleCard } from "@/components/ArticleCard";
-import { getAllArticles } from "@/lib/markdown/article_parser";
+import { getAllArticles } from "@/lib/markdown/article_utility";
 
 export default function ArticlesPage() {
 	const articles = getAllArticles();
