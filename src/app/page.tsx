@@ -1,3 +1,4 @@
+import React from "react";
 import { ArticleCard } from "@/components/ArticleCard";
 import { getAllArticles } from "@/lib/markdown/article_utility";
 import { getLatestArticle } from "@/lib/latest_article";
