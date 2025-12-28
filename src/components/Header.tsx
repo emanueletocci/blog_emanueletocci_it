@@ -39,11 +39,9 @@ export default function TerminalHeader() {
           <code>
             <span className="text-cyan-400">blog@emanueletocci.it:~$ </span>
             <span className="text-gray-100">{typedCommand}</span>
-            {/* Cursore rimosso come richiesto prima */}
           </code>
         </section>
 
-        {/* ... Il resto dei Link di navigazione rimane uguale ... */}
         <div className="flex gap-6 ml-auto md:ml-6">
             <Link href="/" className={`hover:text-cyan-400 ${pathname === '/' ? 'text-cyan-400' : ''}`}>
             home/
