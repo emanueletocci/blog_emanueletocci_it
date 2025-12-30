@@ -6,8 +6,6 @@
 [![shadcn/ui](https://img.shields.io/badge/shadcn-ui-ffffff?style=for-the-badge&logo=vercel&logoColor=black)](https://ui.shadcn.com/)
 [![gray-matter](https://img.shields.io/badge/gray--matter-181717?style=for-the-badge&logo=markdown&logoColor=white)](https://github.com/jonschlinkert/gray-matter)
 [![Markdown](https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white)](https://daringfireball.net/projects/markdown/)
-[![Cloudinary](https://img.shields.io/badge/Cloudinary-3448C5?style=for-the-badge&logo=cloudinary&logoColor=white)](https://cloudinary.com/)
-[![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
 ---
 
@@ -17,7 +15,7 @@ Blog personale sviluppato con **Next.js** + **TypeScript**.
 Gli articoli sono scritti in **Markdown** e memorizzati come file `.md` nella repo.  
 La gestione del frontmatter è affidata a **gray-matter**.  
 La UI è creata con **Tailwind CSS** e i componenti preconfigurati di **shadcn/ui**.  
-Le immagini sono ottimizzate e servite tramite **Next.js Image component** e anche da **Cloudinary**.
+Le immagini sono ottimizzate e servite tramite **Next.js Image component**.
 
 ---
 
@@ -29,7 +27,6 @@ Le immagini sono ottimizzate e servite tramite **Next.js Image component** e anc
 - **[shadcn/ui](https://ui.shadcn.com/):** componenti React modulari pronti e accessibili.
 - **[gray-matter](https://github.com/jonschlinkert/gray-matter):** parsing del frontmatter YAML nei markdown.
 - **[Markdown](https://daringfireball.net/projects/markdown/):** formato di scrittura per articoli.
-- **[Cloudinary](https://cloudinary.com/):** CDN e ottimizzazione immagini remote.
 - **[Next.js Image component](https://nextjs.org/docs/pages/api-reference/components/image):** immagini ottimizzate con lazy-loading.
 
 ---
