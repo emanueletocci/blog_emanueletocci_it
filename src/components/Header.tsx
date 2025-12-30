@@ -29,9 +29,8 @@ export default function TerminalHeader() {
 
   // Passiamo il testo "pulito" al typewriter
   const typedCommand = useTypewriter(commandText, 50);
-
   return (
-    <header className="border rounded border-cyan-400 flex items-center p-3 mt-5">
+    <header className="border rounded border-cyan-400 flex items-center p-3 mt-5 shadow-lg shadow-cyan-500/50 ">
       <nav className="flex items-center space-x-15 w-full">
         
         {/* Prompt Dinamico */}

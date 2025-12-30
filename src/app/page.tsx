@@ -72,7 +72,7 @@ export default function HomePage() {
 			<section>
 				{/* COLONNA SINISTRA */}
 				<div className="row flex flex-row gap-5">
-					<div className="w-3/4">
+					<div className="w-3/4 shadow-lg shadow-cyan-500/50">
 						<div className="bg-cyan-700 text-cyan-100 p-2 font-mono text-base rounded-t border border-cyan-400 border-b-0">
 							<code>~$ ls articoli/ | grep &quot;latest&quot;</code>
 						</div>
@@ -86,8 +86,7 @@ export default function HomePage() {
 						</div>
 					</div>
 					{/* COLONNA DESTRA */}
-					{/* COLONNA DESTRA */}
-					<div className="hidden md:block w-1/5 relative shrink-0">
+					<div className="hidden md:block w-1/5 relative shrink-0 shadow-lg shadow-cyan-500/50">
 						<div className="h-full border border-cyan-400 rounded overflow-hidden relative bg-transparent">
 							{/* LAYER 1: ASCII ART (Spostata in alto) */}
 							{/* Rimosso items-center, aggiunto pt-4 per il padding superiore */}
@@ -108,7 +107,7 @@ export default function HomePage() {
 				</div>
 			</section>
 			{/* SECONDA SEZIONE */}
-			<section>
+			<section className="shadow-lg shadow-cyan-500/50">
 				<div className="bg-cyan-700 text-cyan-100 p-2 font-mono text-base rounded-t border border-cyan-400 border-b-0">
 					<code>~$ ls articoli/ | head -n 6</code>
 				</div>

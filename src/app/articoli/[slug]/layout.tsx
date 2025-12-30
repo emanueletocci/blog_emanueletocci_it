@@ -14,20 +14,20 @@ export default function SingleArticle({
 }) {
   const article = getArticleBySlug(params.slug);
   const content = article.content ?? "";
-  const headings = getHeadings(content); // array piatto
-  const tocTree = buildTocTree(headings); // struttura ad albero
+  const headings = getHeadings(content); 
+  const tocTree = buildTocTree(headings); 
 
   return (
     <div className="flex flex-row w-full gap-5">
-      <main className="flex-[3] p-5 border rounded border-cyan-400">
+      <main className="flex-[3] p-5 border rounded border-cyan-400 shadow-lg shadow-cyan-500/50">
         {children}
       </main>
 
       {headings.length > 0 && (
         <aside className="flex-[1]">
           {/* Indice - TOC */}
-          <div className="border rounded border-cyan-400 p-5 sticky top-5 self-start">
-            <div className="flex flex-row items-center mb-5 bg-cyan-950 border rounded border-cyan-400 text-cyan-400 p-5">
+          <div className="border rounded border-cyan-400 p-5 sticky top-5 self-start shadow-lg shadow-cyan-500/50">
+            <div className="flex flex-row items-center mb-5 bg-cyan-950 border rounded border-cyan-400 text-cyan-400 p-5 shadow-lg shadow-cyan-500/50">
               <code className="before:animate-typewriter after:animate-caret">
                 ~$ tree &quot;indice&quot;{" "}
               </code>
@@ -41,7 +41,6 @@ export default function SingleArticle({
     </div>
   );
 }
-
 
 // funzione ricorsiva per rendererizzare la
 function TocList({
