@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useTypewriter } from "../hooks/useTypewriter";
+import { useTypewriter } from "@/hooks/useTypewriter";
 
 export default function TerminalHeader() {
   const pathname = usePathname();
@@ -30,7 +30,7 @@ export default function TerminalHeader() {
   // Passiamo il testo "pulito" al typewriter
   const typedCommand = useTypewriter(commandText, 50);
   return (
-    <header className="border rounded border-cyan-400 flex items-center p-3 mt-5 shadow-lg shadow-cyan-500/50 ">
+    <header className="border rounded border-cyan-400 flex items-center p-3 mt-5 shadow-lg shadow-cyan-500/50">
       <nav className="flex items-center space-x-15 w-full">
         
         {/* Prompt Dinamico */}
@@ -51,10 +51,10 @@ export default function TerminalHeader() {
             <Link href="/about" className={`hover:text-cyan-400 ${pathname.startsWith('/about') ? 'text-cyan-400' : ''}`}>
             about/
             </Link>
-            <Link href="/gallery" className={`hover:text-cyan-400 ${pathname.startsWith('/gallery') ? 'text-cyan-400' : ''}`}>
+            <Link href="http://gallery.emanueletocci.it" className={`hover:text-cyan-400 ${pathname.startsWith('/gallery') ? 'text-cyan-400' : ''}`}>
             gallery.
             </Link>
-            <Link href="/portfolio" className={`hover:text-cyan-400 ${pathname.startsWith('/portfolio') ? 'text-cyan-400' : ''}`}>
+            <Link href="http://io.emanueletocci.it" className={`hover:text-cyan-400 ${pathname.startsWith('/portfolio') ? 'text-cyan-400' : ''}`}>
             portfolio.
             </Link>
         </div>

@@ -5,14 +5,28 @@ import { getArticleBySlug, getHeadings } from "@/lib/markdown/article_utility";
 import { buildTocTree } from "@/lib/buildTocTree";
 import { HeadingNode } from "@/types/headingNode";
 
-export default function SingleArticle({
+type LayoutProps = {
+  children: React.ReactNode;
+  params: Promise<{ slug: string }>;
+};
+
+export default async function SingleArticle({
   children,
   params,
-}: {
-  children: React.ReactNode;
-  params: { slug: string };
-}) {
-  const article = getArticleBySlug(params.slug);
+}: LayoutProps) {
+  
+  const { slug } = await params;
+
+  const article = getArticleBySlug(slug);
+
+  if (!article) {
+    return (
+      <div className="p-10 text-red-500 font-mono border border-red-500 rounded">
+        Error 404: Article not found.
+      </div>
+    );
+  }
+
   const content = article.content ?? "";
   const headings = getHeadings(content); 
   const tocTree = buildTocTree(headings); 
@@ -24,7 +38,7 @@ export default function SingleArticle({
       </main>
 
       {headings.length > 0 && (
-        <aside className="flex-[1]">
+        <aside className="hidden lg:block flex-[1]"> {/* Ho aggiunto hidden su mobile per pulizia */}
           {/* Indice - TOC */}
           <div className="border rounded border-cyan-400 p-5 sticky top-5 self-start shadow-lg shadow-cyan-500/50">
             <div className="flex flex-row items-center mb-5 bg-cyan-950 border rounded border-cyan-400 text-cyan-400 p-5 shadow-lg shadow-cyan-500/50">
@@ -42,33 +56,30 @@ export default function SingleArticle({
   );
 }
 
-// funzione ricorsiva per rendererizzare la
+// Funzione TocList 
 function TocList({
-	items,
-	prefix = [],
+  items,
+  prefix = [],
 }: {
-	items: HeadingNode[];
-	prefix?: number[];
+  items: HeadingNode[];
+  prefix?: number[];
 }) {
-	return (
-		<ol className="ml-4">
-			{items.map((item, idx) => {
-				// Calcolo del numero della voce (es. 1.2.3)
-				// - prefix: numerazione elemento padre
-				// - idx posizione corrente nell'array (0-based)
-				const number = [...prefix, idx + 1].join(".");
-				return (
-					<li key={item.id}>
-						<span className="mr-2 text-cyan-200">{number}.</span>
-						<a href={`#${item.id}`} className="hover:underline">
-							{item.text}
-						</a>
-						{item.children.length > 0 && (
-							<TocList items={item.children} prefix={[...prefix, idx + 1]} />
-						)}
-					</li>
-				);
-			})}
-		</ol>
-	);
+  return (
+    <ol className="ml-4">
+      {items.map((item, idx) => {
+        const number = [...prefix, idx + 1].join(".");
+        return (
+          <li key={item.id}>
+            <span className="mr-2 text-cyan-200">{number}.</span>
+            <a href={`#${item.id}`} className="hover:underline hover:text-cyan-400 transition-colors">
+              {item.text}
+            </a>
+            {item.children.length > 0 && (
+              <TocList items={item.children} prefix={[...prefix, idx + 1]} />
+            )}
+          </li>
+        );
+      })}
+    </ol>
+  );
 }

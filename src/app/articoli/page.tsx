@@ -5,82 +5,104 @@ import { ArticleCard } from "@/components/ArticleCard";
 import { getAllArticles } from "@/lib/markdown/article_utility";
 
 type ArticlesPageProps = {
-	searchParams: { [key: string]: string | string[] | undefined };
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
-export default function ArticlesPage({ searchParams }: ArticlesPageProps) {
-	const articles = getAllArticles();
+export default async function ArticlesPage({ searchParams }: ArticlesPageProps) {
+    const resolvedSearchParams = await searchParams;
+    
+    // Estrazione variabili
+    const categoryFilter = typeof resolvedSearchParams.category === 'string' 
+        ? resolvedSearchParams.category 
+        : undefined;
+        
+    const titleQuery = typeof resolvedSearchParams.q === 'string' 
+        ? resolvedSearchParams.q 
+        : undefined;
 
-	if (!articles || articles.length === 0) {
-		return (
-			<p className="text-cyan-400 p-10 font-mono">
-				Nessun articolo nel database.
-			</p>
-		);
-	}
+    const allArticles = getAllArticles();
 
-	// Estrazione categoria url
-	const categoryFilter =
-		typeof searchParams.category === "string"
-			? searchParams.category
-			: undefined;
+    if (!allArticles || allArticles.length === 0) {
+        return <p className="text-cyan-400 p-10 font-mono">Database vuoto.</p>;
+    }
 
-	// Filtro logico
-	const filteredArticles = categoryFilter
-		? articles.filter(
-				(article) => article.tags && article.tags.includes(categoryFilter)
-		  )
-		: articles;
+    // LOGICA DI FILTRAGGIO
+    let filteredArticles = allArticles;
+    let activeCommand = "ls -lah articoli/"; // Comando base
 
-	return (
-		<div className="flex flex-row w-full gap-5">
-			<main className="w-full shadow-lg shadow-cyan-500/50">
-				<div className="bg-cyan-700 text-cyan-100 p-2 font-mono text-base rounded-t border border-cyan-400 border-b-0 flex justify-between items-center">
-					<div>
-						<code>~$ ls -lah articoli/</code>
-						{categoryFilter && (
-							<span>
-								{" | grep "}
-								<span className="animate-pulse">
-									&quot;{categoryFilter}&quot;
-								</span>
-							</span>
-						)}
-					</div>
+    // Caso A: Ricerca per Titolo (Input testuale)
+    if (titleQuery) {
+        filteredArticles = allArticles.filter((article) => 
+            article.title.toLowerCase().includes(titleQuery.toLowerCase())
+        );
+        activeCommand = `find . -name "*${titleQuery}*"`;
+    } 
+    // Caso B: Filtro per Categoria (Tag cliccato)
+    else if (categoryFilter) {
+        filteredArticles = allArticles.filter((article) => 
+            article.tags && article.tags.includes(categoryFilter)
+        );
+        activeCommand = `ls articoli/ | grep "${categoryFilter}"`;
+    }
 
-					{/* Tasto RESET*/}
-					{categoryFilter && (
-						<Link
-							href="/articoli"
-							className="text-xs border border-red-400 bg-red-900/20 text-red-200 px-2 py-1 rounded hover:bg-red-500 hover:text-white transition-colors uppercase"
-						>
-							[X] Reset Filter
-						</Link>
-					)}
-				</div>
+    return (
+        <div className="flex flex-row w-full gap-5">
+            <main className="w-full">
+                
+                {/* --- HEADER TERMINALE --- */}
+                <div className="bg-cyan-700 text-cyan-100 p-2 font-mono text-base rounded-t border border-cyan-400 border-b-0 flex justify-between items-center">
+                    <div>
+                        <span className="mr-2">~$</span>
+                        {/* Renderizziamo il comando in modo condizionale per l'evidenziazione */}
+                        {categoryFilter ? (
+                            <code>
+                                ls -lah articoli/ | grep <span className="italic hover:font-bold animate-bounce">&quot;{categoryFilter}&quot;</span>
+                            </code>
+                        ) : titleQuery ? (
+                            <code>
+                                find . -name <span className="italic hover:font-bold animate-bounce">&quot;*{titleQuery}*&quot;</span>
+                            </code>
+                        ) : (
+                            <code>ls -lah articoli/</code>
+                        )}
+                    </div>
 
-				{/* GRIGLIA ARTICOLI */}
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 border border-cyan-400 rounded-b bg-gray-900 p-6 min-h-[300px]">
-					{filteredArticles.length > 0 ? (
-						filteredArticles.map((article) => (
-							<ArticleCard
-								key={article.slug}
-								article={article}
-								imageHeight="h-30"
-								className="w-full"
-							/>
-						))
-					) : (
-						// Caso nessun risultato trovato
-						<div className="col-span-full text-center text-cyan-600 font-mono py-10">
-							<p>Nessun risultato per &quot;{categoryFilter}&quot;</p>
-							<Link href="/articoli" className="underline hover:text-cyan-400">
-								Torna indietro
-							</Link>
-						</div>
-					)}
-				</div>
-			</main>
-		</div>
-	);
+                    {/* Tasto RESET*/}
+                    {(categoryFilter || titleQuery) && (
+                        <Link 
+                            href="/articoli" 
+                            className="text-xs bg-red-500/20 hover:bg-red-500/50 text-red-200 px-2 py-1 rounded border border-red-400 transition-colors uppercase font-mono"
+                        >
+                            [X] Reset
+                        </Link>
+                    )}
+                </div>
+
+                {/* --- GRIGLIA ARTICOLI --- */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 border border-cyan-400 rounded-b bg-gray-900 p-6 min-h-[300px]">
+                    {filteredArticles.length > 0 ? (
+                        filteredArticles.map((article) => (
+                            <ArticleCard
+                                key={article.slug}
+                                article={article}
+                                imageHeight="h-40"
+                                className="w-full"
+                            />
+                        ))
+                    ) : (
+                        // Caso "Nessun risultato"
+                        <div className="col-span-full flex flex-col items-center justify-center text-cyan-600 font-mono py-10 opacity-80">
+                            <p className="text-xl">File not found.</p>
+                            <p className="text-sm mt-2">
+                                Nessun articolo corrisponde a: {titleQuery || categoryFilter}
+                            </p>
+                            <Link href="/articoli" className="underline hover:text-cyan-400 mt-4">
+                                Torna alla root
+                            </Link>
+                        </div>
+                    )}
+                </div>
+            </main>
+        </div>
+    );
 }
