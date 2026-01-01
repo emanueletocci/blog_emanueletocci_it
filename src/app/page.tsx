@@ -72,7 +72,7 @@ export default function HomePage() {
 			<section>
 				{/* COLONNA SINISTRA */}
 				<div className="row flex flex-row gap-5">
-					<div className="w-3/4 shadow-lg shadow-cyan-500/50">
+					<div className="flex-1 shadow-lg shadow-cyan-500/50">
 						<div className="bg-cyan-700 text-cyan-100 p-2 font-mono text-base rounded-t border border-cyan-400 border-b-0">
 							<code>~$ ls articoli/ | grep &quot;latest&quot;</code>
 						</div>
@@ -88,15 +88,14 @@ export default function HomePage() {
 					{/* COLONNA DESTRA */}
 					<div className="hidden md:block w-1/5 relative shrink-0 shadow-lg shadow-cyan-500/50">
 						<div className="h-full border border-cyan-400 rounded overflow-hidden relative bg-transparent">
-							{/* LAYER 1: ASCII ART (Spostata in alto) */}
-							{/* Rimosso items-center, aggiunto pt-4 per il padding superiore */}
+							{/* ASCII ART*/}
 							<div className="absolute inset-0 flex justify-center Letto pt-4 pointer-events-none">
 								<pre className="text-cyan-400 font-mono text-[10px] leading-[10px] whitespace-pre scale-[0.30] origin-center font-bold">
 									{maskAscii}
 								</pre>
 							</div>
 
-							{/* LAYER 2: CITAZIONE (Ancorata in basso) */}
+							{/* CITAZIONE */}
 							<div className="absolute bottom-4 left-0 right-0 text-center z-10">
 								<p className="text-cyan-400 font-mono text-[10px] md:text-xs font-bold tracking-widest uppercase animate-pulse drop-shadow-md">
 									Control is an illusion
@@ -107,7 +106,7 @@ export default function HomePage() {
 				</div>
 			</section>
 			{/* SECONDA SEZIONE */}
-			<section className="shadow-lg shadow-cyan-500/50">
+			<section className="hidden shadow-lg shadow-cyan-500/50">
 				<div className="bg-cyan-700 text-cyan-100 p-2 font-mono text-base rounded-t border border-cyan-400 border-b-0">
 					<code>~$ ls articoli/ | head -n 6</code>
 				</div>

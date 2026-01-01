@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <body className="font-mono bg-gray-900 text-gray-100 transition-colors duration-500 min-h-screen">
                 <div className="md:max-w-9/10 mx-auto">
                     <TerminalHeader />
-                    <main className="flex-grow py-8 flex flex-col">{children}</main>
+                    <main className="flex-grow py-3 flex flex-col m-5">{children}</main>
                     <footer className="border-t my-10 pt-5 text-center text-sm text-gray-500">
                         &copy; {new Date().getFullYear()} Emanuele Tocci. All rights
                         reserved.

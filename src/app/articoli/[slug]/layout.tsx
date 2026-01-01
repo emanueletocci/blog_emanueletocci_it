@@ -38,7 +38,7 @@ export default async function SingleArticle({
       </main>
 
       {headings.length > 0 && (
-        <aside className="hidden lg:block flex-[1]"> {/* Ho aggiunto hidden su mobile per pulizia */}
+        <aside className="hidden lg:block flex-[1]">
           {/* Indice - TOC */}
           <div className="border rounded border-cyan-400 p-5 sticky top-5 self-start shadow-lg shadow-cyan-500/50">
             <div className="flex flex-row items-center mb-5 bg-cyan-950 border rounded border-cyan-400 text-cyan-400 p-5 shadow-lg shadow-cyan-500/50">

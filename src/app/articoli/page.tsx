@@ -53,7 +53,6 @@ export default async function ArticlesPage({ searchParams }: ArticlesPageProps) 
                 <div className="bg-cyan-700 text-cyan-100 p-2 font-mono text-base rounded-t border border-cyan-400 border-b-0 flex justify-between items-center">
                     <div>
                         <span className="mr-2">~$</span>
-                        {/* Renderizziamo il comando in modo condizionale per l'evidenziazione */}
                         {categoryFilter ? (
                             <code>
                                 ls -lah articoli/ | grep <span className="italic hover:font-bold animate-bounce">&quot;{categoryFilter}&quot;</span>
